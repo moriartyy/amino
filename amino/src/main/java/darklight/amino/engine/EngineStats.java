@@ -1,4 +1,4 @@
-package darklight.amino;
+package darklight.amino.engine;
 
 import darklight.amino.spider.SpiderStats;
 

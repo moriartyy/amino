@@ -1,7 +1,8 @@
 package darklight.amino.repository;
 
-import darklight.amino.Page;
+import darklight.amino.engine.Page;
 
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -14,4 +15,8 @@ public interface Repository {
     void save(String spider, Page page);
 
     List<Page> acquireFresh(String spider, int i);
+
+    void delete(Page page);
+
+    Page get(URL url);
 }

@@ -7,11 +7,11 @@ import java.io.Closeable;
  */
 public class Closeables {
 
-    public static void safelyClose(Closeable... objects) {
-        for (Closeable object : objects) {
+    public static void closeQuietly(Closeable... closeables) {
+        for (Closeable closeable : closeables) {
             try {
-                if (object != null) {
-                    object.close();
+                if (closeable != null) {
+                    closeable.close();
                 }
             } catch (Throwable t) {
             }

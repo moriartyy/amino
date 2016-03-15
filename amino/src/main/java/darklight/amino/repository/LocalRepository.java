@@ -1,6 +1,6 @@
 package darklight.amino.repository;
 
-import darklight.amino.Page;
+import darklight.amino.engine.Page;
 
 import java.util.List;
 
@@ -22,5 +22,10 @@ public class LocalRepository implements Repository {
     @Override
     public List<Page> acquireFresh(String spider, int i) {
         return null;
+    }
+
+    @Override
+    public void delete(Page page) {
+
     }
 }

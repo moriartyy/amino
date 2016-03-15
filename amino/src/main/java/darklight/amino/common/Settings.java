@@ -42,6 +42,10 @@ public class Settings {
         return this.classLoader == null ? Classes.getDefaultClassLoader() : classLoader;
     }
 
+    public int getAsInt(String key, int defaultVal) {
+        return 0;
+    }
+
     public static class Builder {
 
         private final Map<String, String> map = Maps.newHashMap();

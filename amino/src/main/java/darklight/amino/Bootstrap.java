@@ -2,6 +2,7 @@ package darklight.amino;
 
 import darklight.amino.common.Environment;
 import darklight.amino.common.Settings;
+import darklight.amino.engine.Engine;
 
 import java.util.concurrent.CountDownLatch;
 

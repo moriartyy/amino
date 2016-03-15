@@ -1,7 +1,7 @@
 package darklight.amino.repository;
 
 import com.google.inject.name.Names;
-import darklight.amino.Module;
+import darklight.amino.engine.Module;
 
 /**
  * Created by hongmiao.yu on 2016/3/11.

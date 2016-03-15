@@ -1,6 +1,6 @@
 package darklight.amino.spider;
 
-import darklight.amino.Page;
+import darklight.amino.engine.Page;
 import darklight.amino.common.Switchable;
 
 /**
@@ -10,9 +10,11 @@ public interface Spider extends Switchable {
 
     SpiderStats stats();
 
-    void fetch(Page page);
+    void crawl(Page page);
 
     Page next();
 
     String name();
+
+    void setConfig(SpiderConfig config);
 }

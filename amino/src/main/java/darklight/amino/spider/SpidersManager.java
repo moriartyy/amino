@@ -4,11 +4,11 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Closeables;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import darklight.amino.common.AminoException;
 import darklight.amino.common.ClassLoaders;
 import darklight.amino.common.Environment;
 import darklight.amino.common.Settings;
 import darklight.amino.common.component.LifecycleComponent;
+import darklight.amino.engine.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,6 +57,7 @@ public class SpidersManager extends LifecycleComponent {
                     String spiderClassName = spiderProps.getProperty("type");
                     Class<? extends Spider> spiderClass = (Class<? extends Spider>) settings.getClassLoader().loadClass(spiderClassName);
                     Spider spider = injector.getInstance(spiderClass);
+                    spider.setConfig(SpiderConfig.of(spiderProps));
 
                     //TODO 可能有重名的爬虫，需要处理
                     spiders.put(spider.name(), spider);
@@ -86,5 +87,13 @@ public class SpidersManager extends LifecycleComponent {
     @Override
     protected void doStop() {
         this.spiders.values().forEach(spider -> spider.stop());
+    }
+
+    public Spider getSpider(String spider) {
+        return this.spiders.get(spider);
+    }
+
+    public void fetch(Page page) {
+        getSpider(page.spider()).crawl(page);
     }
 }
